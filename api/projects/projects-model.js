@@ -15,6 +15,19 @@ function add(item) {
 }
 
 function get(id) {
-    if (id) return db('projects').where({id}).first().then(resp => ({...resp, completed: !!resp.completed}))
-    else return db('projects').then(resp => resp.map(project => ({...project, completed: !!project.completed})))
+    if (id) {
+        return db('projects')
+        .where({id}).first()
+        .then(resp => {
+            resp.completed = !!resp.completed
+            return resp
+        })
+    }
+    else {
+        return db('projects')
+        .then(resp => resp.map(project => {
+            project.completed = !!project.completed
+            return project
+        }))
+    }
 }
