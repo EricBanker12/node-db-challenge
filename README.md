@@ -16,12 +16,12 @@ The Minimum Viable Product must be completed in three hours.
 
 Follow these steps to set up and work on your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your _Team Lead_ as collaborator on Github.
-- [ ] Clone your forked version of the Repository.
-- [ ] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
-- [ ] Implement the project on this Branch, committing changes regularly.
-- [ ] Push commits: git push origin `firstName-lastName`.
+- [x] Create a forked copy of this project.
+- [x] Add your _Team Lead_ as collaborator on Github.
+- [x] Clone your forked version of the Repository.
+- [x] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
+- [x] Implement the project on this Branch, committing changes regularly.
+- [x] Push commits: git push origin `firstName-lastName`.
 
 Follow these steps for completing your project.
 
@@ -38,13 +38,27 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Explain the difference between `Relational Databases` and `SQL`.
+- [x] Explain the difference between `Relational Databases` and `SQL`.
 
-- [ ] Why do tables need a `primary key`?
+   Relational Databases are a data storage device that stores identically shaped records with many fields as a table with rows (for each record) and columns (for each field).
 
-- [ ] What is the name given to a table column that references the primary key on another table.
+   SQL is a standardized language used to define, manipulate, query, and control the data in a database.
 
-- [ ] What do we need in order to have a _many to many_ relationship between two tables.
+   On is a type of database, and the other is a language for interacting with it.
+
+- [x] Why do tables need a `primary key`?
+
+   The primary key is a unique identifier that lets the database recognize distinct records from eachother.
+
+- [x] What is the name given to a table column that references the primary key on another table.
+
+   That field will contain foreign keys, which allow the combining of tables for multi-table queries.
+
+   The column name will usually be a combination of the table name and column name from which the foreign key relates to.
+
+- [x] What do we need in order to have a _many to many_ relationship between two tables.
+
+   We will need an intermediary table which stores the relationship between each related pair of records from the two tables. This intermediary table will store 2 foreign keys, one from each table, in unique 2-key permutations.
 
 ## Minimum Viable Product
 
