@@ -10,7 +10,7 @@ exports.up = function(knex) {
         // description string
         tbl.string('description')
         // completed boolean default false
-        tbl.string('completed').defaultTo(false).notNullable()
+        tbl.boolean('completed').defaultTo(false).notNullable()
     })
 
     // tasks
@@ -22,7 +22,7 @@ exports.up = function(knex) {
         // notes string 
         tbl.string('notes')
         // completed boolean default false
-        tbl.string('completed').defaultTo(false).notNullable()
+        tbl.boolean('completed').defaultTo(false).notNullable()
         // project_id foreign key
         tbl.integer('project_id')
             .unsigned()
