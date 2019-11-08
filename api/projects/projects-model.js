@@ -45,10 +45,10 @@ async function getTree(id) {
                 return task
             }))
 
-        const resources = await db('project_recources')
-            .join('resources', 'resources.id', 'project_recources.resource_id')
+        const resources = await db('project_resources')
+            .join('resources', 'resources.id', 'project_resources.resource_id')
             .select('resources.*')
-            .where('project_recources.project_id', id)
+            .where('project_resources.project_id', id)
 
         return {...project, tasks, resources}
     }
