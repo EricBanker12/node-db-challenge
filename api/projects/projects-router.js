@@ -66,4 +66,19 @@ router.post('/:id/tasks', (req, res) => {
     })
 })
 
+router.post('/:id/resources', (req, res) => {
+    if (!req.body) return res.status(400).json({message: 'missing data body'})
+    
+    if (!req.body.id) return res.status(400).json({message: 'missing required field: id'})
+
+    projectsDB.attachResource(req.params.id, req.body)
+    .then(resp => {
+        res.status(201).json(resp)
+    })
+    .catch(err => {
+        console.error(err)
+        res.sendStatus(500)
+    })
+})
+
 module.exports = router

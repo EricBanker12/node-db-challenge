@@ -6,6 +6,7 @@ const db = knex(config.development)
 
 module.exports = {
     add,
+    attachResource,
     get,
     getTree
 }
@@ -55,4 +56,11 @@ async function getTree(id) {
     catch (err) {
         throw err
     }
+}
+
+function attachResource(project_id, resource) {
+    const resource_id = resource.id
+
+    return db('project_resources').insert({project_id, resource_id})
+        .then(resp => getTree(project_id))
 }
