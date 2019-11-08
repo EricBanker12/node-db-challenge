@@ -15,12 +15,12 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     if (!req.body) return res.status(400).json({message: 'missing data body'})
-    
+
     if (!req.body.name) return res.status(400).json({message: 'missing required field: name'})
     
     resourcesDB.add(req.body)
     .then(resp => {
-        res.json(resp)
+        res.status(201).json(resp)
     })
     .catch(err => {
         console.error(err)
