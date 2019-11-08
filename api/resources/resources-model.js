@@ -15,6 +15,6 @@ function add(item) {
 }
 
 function get(id) {
-    if (id) return db('resources').where({id})
+    if (id) return db('resources').where({id}).first()
     else return db('resources')
 }
