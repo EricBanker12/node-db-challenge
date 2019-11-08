@@ -14,6 +14,17 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/:id', (req, res) => {
+    projectsDB.getTree(req.params.id)
+    .then(resp => {
+        res.json(resp)
+    })
+    .catch(err => {
+        console.error(err)
+        res.sendStatus(500)
+    })
+})
+
 router.post('/', (req, res) => {
     if (!req.body) return res.status(400).json({message: 'missing data body'})
     

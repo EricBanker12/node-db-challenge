@@ -6,7 +6,8 @@ const db = knex(config.development)
 
 module.exports = {
     add,
-    get
+    get,
+    getTree
 }
 
 function add(item) {
@@ -29,5 +30,29 @@ function get(id) {
             project.completed = !!project.completed
             return project
         }))
+    }
+}
+
+async function getTree(id) {
+    try {
+        const project = await get(id)
+        
+        const tasks = await db('tasks')
+            .select('id', 'description', 'completed')
+            .where('project_id', id)
+            .then(resp => resp.map(task => {
+                task.completed = !!task.completed
+                return task
+            }))
+
+        const resources = await db('project_recources')
+            .join('resources', 'resources.id', 'project_recources.resource_id')
+            .select('resources.*')
+            .where('project_recources.project_id', id)
+
+        return {...project, tasks, resources}
+    }
+    catch (err) {
+        throw err
     }
 }
